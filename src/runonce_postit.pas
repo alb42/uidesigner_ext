@@ -222,6 +222,9 @@ var
   VSnapshotHandle: THandle;
   VProcessEntry32: TProcessEntry32;
 {$ENDIF}
+{$IFDEF HASAMIGA}
+  Proc: Pointer;
+{$ENDIF}
 begin
 {$IFDEF UNIX}
   VOldNameValueSeparator := AProcess.NameValueSeparator;
@@ -258,6 +261,9 @@ begin
   except
 
   end;
+{$ENDIF}
+{$IFDEF HASAMIGA}
+  {$WARNING TODO: search in exec for the process}
 {$ENDIF}
   if AProcess.Count > 0 then
     AProcess.Delete(0);

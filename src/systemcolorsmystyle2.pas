@@ -66,7 +66,7 @@ type
 implementation
 
 uses
-  fpg_stylemanager, {$IFDEF LINUX}fpg_gtk{$ELSE}{$IFDEF WINDOWS}fpg_WinAPI{$ENDIF}{$ENDIF};
+  fpg_stylemanager{$IFDEF LINUX}, fpg_gtk{$ELSE}{$IFDEF WINDOWS}, fpg_WinAPI{$ENDIF}{$ENDIF};
 
 { TSystemColorsStyle }
 

@@ -109,8 +109,9 @@ uses {$IFDEF UNIX}
       maindsgn.Free;
     end;
   end;
-
+{$ifndef HASAMIGA}
 {$R *.res}
+{$endif}
 
 begin
   MainProc;

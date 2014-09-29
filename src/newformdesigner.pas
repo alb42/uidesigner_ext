@@ -578,7 +578,9 @@ if (FileExists(theMessage)) or (theMessage = 'closeall') then
   maindsgn.EditedFileName := theMessage;
   maindsgn.OnLoadFile(maindsgn);
    end;
+{$ifndef HASAMIGA}  
 BringToFront;
+{$endif}
 end;
 
 procedure TfrmMain.OnLoadUndo(Sender: TObject);
