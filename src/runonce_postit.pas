@@ -316,21 +316,24 @@ function TOncePost.IsRunningIDE(AProcess : string) :boolean;
 var
   VProcess: TStringList;
   x : integer;
-  begin
+begin
   x := 0;
   result := false;
   VProcess := TStringList.Create;
   ListProcess(VProcess, False, False, False);
-  while x < VProcess.Count do
-  begin
-    if pos(AProcess, VProcess.Strings[x]) > 0 then
-     begin
-     result := true;
-     exit;
-     end;
-   inc(x);
- end;
-  VProcess.Free;
+  try
+    while x < VProcess.Count do
+    begin
+      if pos(AProcess, VProcess.Strings[x]) > 0 then
+       begin
+       result := true;
+       exit;
+       end;
+     inc(x);
+   end;
+ finally
+   VProcess.Free;
+ end; 
 end;
 
 end.
